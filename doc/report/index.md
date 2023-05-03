@@ -12,8 +12,9 @@ In carry trade, we always hope to with "positive carry", i.e. "borrow" in low-in
 Using the below diagram to illustrate the sources of return for a simple carry trade with "positive carry": IDR interest income, USD interest cost, and FX return. An IDR deposit yields 10%, compared to a USD deposit of 2%. We engage in the carry trade when "borrow" in USD (paying 2%) and "lend" in IDR (receiving 10%). The combination of USD loan and IDR deposit creates an 8% yield premium. 
 ![carry](carry.png)
 
-Our research is based on the daily TRI series of the AUDUSD currency pair from 1997 to 2022. TRI means the total return index of carry trade, which equals to the sum of spot change and cumulative carry. All the spot data are rebalanced with the very begin data, i.e. the 
-"spot" data means the change with the initial spot, so that $TRI_{t} = SPOT_{t} + \sum_{i=1}^{t}carry_{i}$
+Our research is based on the daily TRI series of the AUDUSD currency pair from 1997 to 2022. TRI means the total return index of carry trade, which equals to the sum of spot change and cumulative carry. 
+
+And we rebalanced all the spot data with the very begin data, i.e. the "spot" data means the spot change with the initial spot, so that we have, $$TRI_{t} = SPOT_{t} + \sum_{i=1}^{t}CARRY_{i}$$
 ![tri](tri.png)
 
 ## Modelling
