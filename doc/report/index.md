@@ -17,6 +17,8 @@ Our research is based on the daily TRI series of the AUDUSD currency pair from 1
 And we rebalanced all the spot data with the very begin data, i.e. the "spot" data means the spot change with the initial spot, so that we have, $$TRI_{t} = SPOT_{t} + \sum_{i=1}^{t}CARRY_{i}$$
 ![tri](tri.png)
 
+Furthermore, we divide the data before 2020 into the train set, and the data after 2020 into the test set. And we perform pre-processing of TRI data while training the neural network models for better fitting result and fast convergence. For train set, we firstly eliminate the extreme values, then standardize the data; for test set, we use the rolling window standardization to aviod suffering from look ahead bias.
+
 ## Modelling
 
 ### ARIMA-GARCH Model
