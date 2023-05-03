@@ -15,6 +15,12 @@ Here is the structure of RNN:
 
 ![Structure of RNN](http://121.199.45.168:8002/img/RNN2.gif)
 
+General single-layer neural network structure:  
+
+![Structure of RNN](http://121.199.45.168:8002/img/21.png)
+
+![Structure of RNN](http://121.199.45.168:8002/img/22.png)
+
 We focus on the square part in the middle, which has two inputs, $h(t-1)$ and $x(t)$, representing the hidden layer output of the previous time step and the input of this time step. After entering the RNN structure, they will "fuse" together. According to the structural explanation, this fusion is to concatenate the two to form a new tensor $[x (t), h (t-1)]$, and then this new tensor will pass through a fully connected layer (linear layer), This layer uses tanh as the activation function, and finally obtains the output $h(t)$ of this time step, which will enter the structure together with $x(t+1)$ as the input of the next time step and so on.
 #### LSTM
 LSTM is a variant of traditional RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.  
@@ -22,20 +28,31 @@ It is divided into four parts: Forgotten Gate, Input gate, Cell state, Output ga
 
 The structure shows below:
 
+![Structure of RNN](http://121.199.45.168:8002/img/31.png)
+
+![Structure of RNN](http://121.199.45.168:8002/img/22.png)
 
 
 Forgetting Gate Structure Analysis:  
 Similar to the internal structure calculation of traditional RNN, the current time step input $x(t)$ is concatenated with the previous time step implicit state $h(t-1)$ to obtain $[x(t),h(t-1)]$. Then, a fully connected layer is transformed, and finally, $f(t)$ is activated through the sigmoid function to obtain $f(t)$. We can consider f(t) as a gate value, such as the magnitude of a door opening and closing, and the gate value will act on the tensor passing through that door, The forgetting gate value will affect the cell state of the previous layer, representing how much information has been forgotten in the past. Since the forgetting gate value is calculated by $x(t)$, $h(t-1)$, the entire formula means that the amount of past information carried by the cell state of the previous layer is determined based on the current time step input and the previous time step implicit state $h(t-1)$.   
 
+![Structure of RNN](http://121.199.45.168:8002/img/32.png)
+
 Input gate structure analysis:  
-We can see that there are two formulas for calculating input gates. The first one is the formula for generating input gate values, which is almost the same as the forgetting gate formula, except that the difference lies in the target they will affect later This formula means how much input information needs to be filtered The second formula for the input gate is the same as the internal structure calculation of traditional RNN For LSTM, it obtains the current cell state, rather than the implicit state obtained like classical RNN.
+We can see that there are two formulas for calculating input gates. The first one is the formula for generating input gate values, which is almost the same as the forgetting gate formula, except that the difference lies in the target they will affect later This formula means how much input information needs to be filtered The second formula for the input gate is the same as the internal structure calculation of traditional RNN For LSTM, it obtains the current cell state, rather than the implicit state obtained like classical RNN.  
+
+![Structure of RNN](http://121.199.45.168:8002/img/34.png)
 
 Cell state update analysis:  
 The structure and calculation formula of cell update are very easy to understand. There is no fully connected layer here, just multiply the forgetting gate value obtained just now with the $C(t-1)$ obtained from the previous time step, and add the result of multiplying the input gate value with the current time step's non updated $C(t)$ Finally, the updated $C(t)$ is obtained as part of the input for the next time step The entire process of cell state update is the application of forgetting gates and input gates.  
 We can see that there are two formulas for calculating input gates. The first one is the formula for generating input gate values, which is almost the same as the forgetting gate formula, except that the difference lies in the target they will affect later This formula means how much input information needs to be filtered The second formula for the input gate is the same as the internal structure calculation of traditional RNN For LSTM, it obtains the current cell state, rather than the implicit state obtained like classical RNN.  
 
+![Structure of RNN](http://121.199.45.168:8002/img/35.png)
+
 Output gate structure analysis:  
 There are also two formulas for the output gate part. The first one is to calculate the gate value of the output gate, which is the same as the forgetting gate and input gate calculation method The second method is to use this gate value to generate an implicit state h(t), which will act on the updated cell state $C(t)$ and activate tanh, ultimately obtaining $h(t)$ as part of the input for the next time step The entire output gate process is to generate an implicit state $h(t)$.  
+
+![Structure of RNN](http://121.199.45.168:8002/img/37.png)
 
 #### Transformer
 Here is the structure of transformer: 
