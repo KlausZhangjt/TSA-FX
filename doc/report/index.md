@@ -7,6 +7,10 @@ The carry trade is a popular trading strategy in the FX market, from where the i
 
 Based on the methodologies of quantitative time series analysis, we reserach the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future.
 
+## Introduction and Data Description
+
+![carry](carry.png)
+
 ## Modelling
 
 ### ARIMA-GARCH Model
