@@ -3,9 +3,7 @@
 ## Research Background
 The foreign exchange (FX) market is one of the world's largest financial markets, with daily trading volumes that can reach trillions of dollars. It is composed of various participants, including banks, forex dealers, commercial companies, central banks, investment management firms, hedge funds, retail forex dealers, and individual investors. And participants in FX market can buy, sell, exchange, and speculate on the relative exchange rates of various currency pairs.
 
-The carry trade is a popular trading strategy in the FX market, from where the investors invest in high-interest currencies by borrowing in low-interest currencies with the purpose of earning the interest rate differential. 
-
-The primary risks of carry trade include exchange rate fluctuations and changes in interest rates, traders have to take risks in order to achieve excess returns. So how to dynamically adjust our trading direction is of vital importance, which needs our judgement of the macro-economic situation and robust prediction of the future price.
+The carry trade is a popular trading strategy in the FX market, from where the investors invest in high-interest currencies by borrowing in low-interest currencies with the purpose of earning the interest rate differential. The primary risks of carry trade include exchange rate fluctuations and changes in interest rates, traders have to take risks in order to achieve excess returns. So how to dynamically adjust our trading direction is of vital importance, which needs our judgement of the macro-economic situation and robust prediction of the future price.
 
 Based on the methodologies of quantitative time series analysis, we reserach the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future.
 
