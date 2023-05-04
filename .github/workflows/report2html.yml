@@ -1,0 +1,17 @@
+name: report2html
+
+on: push
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ./docs/report
+    steps:
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: >-  # allows you to break string into multiple lines
+            --standalone
+            --output=index.html
+            index.md

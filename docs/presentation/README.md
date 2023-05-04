@@ -1,6 +1,7 @@
 ## Add page in jupyter notebook
 
 1. Add a new markdown cell
+
 ~~2. Change the slide type to "Slide"~~
 
 > You don't need to change the slide type to "Slide" anymore. The generate.sh will do this for you.
