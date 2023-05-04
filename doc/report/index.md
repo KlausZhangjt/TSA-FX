@@ -1,6 +1,7 @@
 # Title Here
 
 ## Research Background
+
 The foreign exchange (FX) market is one of the world's largest financial markets, with daily trading volumes that can reach trillions of dollars. It is composed of various participants, including banks, forex dealers, commercial companies, central banks, investment management firms, hedge funds, retail forex dealers, and individual investors. And participants in FX market can buy, sell, exchange, and speculate on the relative exchange rates of various currency pairs.
 
 The carry trade is a popular trading strategy in the FX market, from where the investors invest in high-interest currencies by borrowing in low-interest currencies with the purpose of earning the interest rate differential. The primary risks of carry trade include exchange rate fluctuations and changes in interest rates, traders have to take risks in order to achieve excess returns. So how to dynamically adjust our trading direction is of vital importance, which needs our judgement of the macro-economic situation and robust prediction of the future price.
@@ -8,6 +9,7 @@ The carry trade is a popular trading strategy in the FX market, from where the i
 Based on the methodologies of quantitative time series analysis, we reserach the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future.
 
 ## Introduction and Data Description
+
 In carry trade, we always hope to with "positive carry", i.e. "borrow" in low-interest currency and "lend" in high-interest currency. 
 Using the below diagram to illustrate the sources of return for a simple carry trade with "positive carry": IDR interest income, USD interest cost, and FX return. An IDR deposit yields 10%, compared to a USD deposit of 2%. We engage in the carry trade when "borrow" in USD (paying 2%) and "lend" in IDR (receiving 10%). The combination of USD loan and IDR deposit creates an 8% yield premium. 
 ![carry](../img/carry.png)
@@ -15,29 +17,31 @@ Using the below diagram to illustrate the sources of return for a simple carry t
 Our research is based on the daily TRI series of the AUDUSD currency pair from 1997 to 2022. TRI means the total return index of carry trade, which equals to the sum of spot change and cumulative carry. 
 
 And we rebalanced all the spot data with the very begin data, i.e. the "spot" data means the spot change with the initial spot, so that we have, 
+
 $$
 TRI_{t} = SPOT_{t} + \sum_{i=1}^{t}CARRY_{i}
 $$
+
 ![tri](../img/tri.png)
 
 Furthermore, we divide the data before 2020 into the train set, and the data after 2020 into the test set. And we perform pre-processing of TRI data while training the neural network models for better fitting result and fast convergence. For train set, we firstly eliminate the extreme values, then standardize the data; for test set, we use the rolling window standardization to aviod suffering from look ahead bias.
 
 ## Data Exploration and Preprocessing
 
-| **timestamp**         | **underlyer** | **trispot** | **carry**   | **active** | **version** | **log_return** |
-|-----------------------|---------------|-------------|-------------|------------|-------------|----------------|
-| 1997-03-20 19:00:00AUD | 50.090012     | 20.089139   | 0.224690    | True       | v2          | 0.001799       |
-| 1997-03-21 19:00:00AUD | 49.827164     | -0.174776   | 0.198000    | True       | v2          | -0.005261      |
-| 1997-03-24 19:00:00AUD | 50.163459     | 0.160175    | 0.207871    | True       | v2          | 0.006727       |
-| 1997-03-25 19:00:00AUD | 50.133008     | 0.129161    | 0.198581    | True       | v2          | -0.000607      |
-| 1997-03-26 19:00:00AUD | 49.511216     | -0.500142   | 0.254483    | True       | v2          | -0.012480      |
+| **timestamp**          | **underlyer** | **trispot** | **carry** | **log_return** |
+| ---------------------- | ------------- | ----------- | --------- | -------------- |
+| 1997-03-20 19:00:00AUD | 50.090012     | 20.089139   | 0.224690  | 0.001799       |
+| 1997-03-21 19:00:00AUD | 49.827164     | -0.174776   | 0.198000  | -0.005261      |
+| 1997-03-24 19:00:00AUD | 50.163459     | 0.160175    | 0.207871  | 0.006727       |
+| 1997-03-25 19:00:00AUD | 50.133008     | 0.129161    | 0.198581  | -0.000607      |
+| 1997-03-26 19:00:00AUD | 49.511216     | -0.500142   | 0.254483  | -0.012480      |
 
 ### Preprocessing
 
 Let time start at $t = 0$. Denote the TRI's time series by $TRI(t)$, then compute its log return $r(t)$ with
 
 $$
-    r(t) = \ln \left[\frac{TRI(t)}{TRI(t-1)}\right].
+r(t) = \ln \left[\frac{TRI(t)}{TRI(t-1)}\right].
 $$
 
 The log return of $TRI$ series are shown in:
@@ -74,28 +78,28 @@ The test results show that the p-value is less than 0.05, so we reject the null 
 
 In order to check the autocorrelation of the log return series of TRI, we perform the Ljung-Box test. The null hypothesis is that the log return series is not autocorrelated, and the alternative hypothesis is that the log return series is autocorrelated. The test results are shown in the following table:
 
-|lag|lb_stat|lb_pvalue|
-|:---:|:---:|:---:|
-|1|30.394860|3.524609e-08|
-|2|34.212607|3.722433e-08|
-|3|143.265224|7.470724e-31|
-|4|210.249295|2.348345e-44|
-|5|226.225141|6.889873e-47|
-|6|265.554091|1.938292e-54|
-|7|265.614094|1.310084e-53|
-|8|268.094990|2.496277e-53|
-|9|286.021461|2.399158e-56|
-|10|291.612616|9.204806e-57|
-|11|291.792997|4.686091e-56|
-|12|292.285683|1.952936e-55|
-|13|293.144314|6.532457e-55|
-|14|293.148632|3.166797e-54|
-|15|295.146772|5.695547e-54|
-|16|295.455119|2.225704e-53|
-|17|300.234030|1.007256e-53|
-|18|302.943857|1.194299e-53|
-|19|303.029277|4.788240e-53|
-|20|305.722103|5.474758e-53|
+| lag | lb_stat    | lb_pvalue    |
+|:---:|:----------:|:------------:|
+| 1   | 30.394860  | 3.524609e-08 |
+| 2   | 34.212607  | 3.722433e-08 |
+| 3   | 143.265224 | 7.470724e-31 |
+| 4   | 210.249295 | 2.348345e-44 |
+| 5   | 226.225141 | 6.889873e-47 |
+| 6   | 265.554091 | 1.938292e-54 |
+| 7   | 265.614094 | 1.310084e-53 |
+| 8   | 268.094990 | 2.496277e-53 |
+| 9   | 286.021461 | 2.399158e-56 |
+| 10  | 291.612616 | 9.204806e-57 |
+| 11  | 291.792997 | 4.686091e-56 |
+| 12  | 292.285683 | 1.952936e-55 |
+| 13  | 293.144314 | 6.532457e-55 |
+| 14  | 293.148632 | 3.166797e-54 |
+| 15  | 295.146772 | 5.695547e-54 |
+| 16  | 295.455119 | 2.225704e-53 |
+| 17  | 300.234030 | 1.007256e-53 |
+| 18  | 302.943857 | 1.194299e-53 |
+| 19  | 303.029277 | 4.788240e-53 |
+| 20  | 305.722103 | 5.474758e-53 |
 
 The test results show that the p-value is less than 0.05, so we reject the null hypothesis and we make sure that the log return series is autocorrelated.   
 
@@ -186,13 +190,13 @@ From the acf plot of residuals, we can see that the residuals are not autocorrel
 
 To further study, we also check the ARCH effect for the residuals. We carry out the Ljung-Box test for the squared residuals $\hat{a}_t^2$. The test results are shown below:
 
-| lag | lb_stat     | lb_pvalue        |
-| --- | -----------| ---------------- |
-| 1   | 724.688343 | 1.279950e-159    |
-| 2   | 1249.695814| 4.285504e-272    |
-| 3   | 1745.005039| 0.000000e+00     |
-| 4   | 3434.410211| 0.000000e+00     |
-| 5   | 4145.335504| 0.000000e+00     |
+| lag | lb_stat     | lb_pvalue     |
+| --- | ----------- | ------------- |
+| 1   | 724.688343  | 1.279950e-159 |
+| 2   | 1249.695814 | 4.285504e-272 |
+| 3   | 1745.005039 | 0.000000e+00  |
+| 4   | 3434.410211 | 0.000000e+00  |
+| 5   | 4145.335504 | 0.000000e+00  |
 
 From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional violatility in the log return series.
 
@@ -213,7 +217,7 @@ a_t&=\sigma_t \epsilon_t\\
 \end{aligned}
 $$
 
-where $\epsilon_t\sim N(0,1)$, $\mu$ is the mean of $r_t$.
+where $\epsilon_t\sim N(0,1)$.
 
 ### Model Fitting
 
@@ -263,7 +267,7 @@ From the acf plot, we can see that the standardized residuals are not serial cor
 We also carry out the Ljung-Box test for the squared standardized residuals $\hat{\epsilon}_t$. The test results are shown below:
 
 | lag | lb_stat  | lb_pvalue |
-|-----|----------|-----------|
+| --- | -------- | --------- |
 | 1   | 0.235009 | 0.627835  |
 | 2   | 0.592110 | 0.743747  |
 | 3   | 0.593039 | 0.898024  |
@@ -277,10 +281,10 @@ We also carry out the Ljung-Box test for the squared standardized residuals $\ha
 
 From the table, we can see that the p-value of the Ljung-Box test is large, which means that the squared standardized residuals $\hat{\epsilon}_t$ are not serial correlated. So we can conclude that the GARCH(1,1) pass the model checking.
 
-
 ### Deep Learning Model
 
 #### RNN
+
 RNN generally takes sequence data as input and effectively captures the relationship features between sequences through the internal structure design of the network. It is also generally output in the form of sequences.   
 The loop mechanism of RNN enables the results generated by the previous time step in the hidden layer of the model to be a part of the input of the current time step (the input of the current time step includes not only the normal input but also the output of the previous hidden layer), which has an impact on the output of the current time step.  
 Here is the structure of RNN:  
@@ -294,7 +298,9 @@ General single-layer neural network structure:
 ![Structure of RNN](http://121.199.45.168:8002/img/22.png)
 
 We focus on the square part in the middle, which has two inputs, $h(t-1)$ and $x(t)$, representing the hidden layer output of the previous time step and the input of this time step. After entering the RNN structure, they will "fuse" together. According to the structural explanation, this fusion is to concatenate the two to form a new tensor $[x (t), h (t-1)]$, and then this new tensor will pass through a fully connected layer (linear layer), This layer uses tanh as the activation function, and finally obtains the output $h(t)$ of this time step, which will enter the structure together with $x(t+1)$ as the input of the next time step and so on.
+
 #### LSTM
+
 LSTM is a variant of traditional RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.  
 It is divided into four parts: Forgotten Gate, Input gate, Cell state, Output gate. 
 
@@ -303,7 +309,6 @@ The structure shows below:
 ![Structure of RNN](http://121.199.45.168:8002/img/31.png)
 
 ![Structure of RNN](http://121.199.45.168:8002/img/22.png)
-
 
 Forgetting Gate Structure Analysis:  
 Similar to the internal structure calculation of traditional RNN, the current time step input $x(t)$ is concatenated with the previous time step implicit state $h(t-1)$ to obtain $[x(t),h(t-1)]$. Then, a fully connected layer is transformed, and finally, $f(t)$ is activated through the sigmoid function to obtain $f(t)$. We can consider f(t) as a gate value, such as the magnitude of a door opening and closing, and the gate value will act on the tensor passing through that door, The forgetting gate value will affect the cell state of the previous layer, representing how much information has been forgotten in the past. Since the forgetting gate value is calculated by $x(t)$, $h(t-1)$, the entire formula means that the amount of past information carried by the cell state of the previous layer is determined based on the current time step input and the previous time step implicit state $h(t-1)$.   
@@ -327,6 +332,7 @@ There are also two formulas for the output gate part. The first one is to calcul
 ![Structure of RNN](http://121.199.45.168:8002/img/37.png)
 
 #### Transformer
+
 Here is the structure of transformer: 
 
 ![Structure of Transformer](http://121.199.45.168:8001/img/4.png)
