@@ -10,6 +10,4 @@ jobs:
     - uses: nikeee/setup-pandoc@v1
       with:
         pandoc-version: '2.7.3' # The pandoc version to download (if necessary) and use.
-    - run: |
-      cd docs/report
-      pandoc --output=index.html index.md
+    - run: cd docs/report & pandoc --output=index.html index.md
