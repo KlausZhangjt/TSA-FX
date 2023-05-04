@@ -5,16 +5,14 @@
 
 ## Convert jupyter notebook to slides
 
-use the generate.sh under this directory
+Use the generate.sh under this directory
 
 ```sh
 sh generate.sh
 ``` 
 
-## View the slides
-
-Open the index.html in browser.
+If success, the presentation will be open automatically in your browser.
 
 ## View Online
 
-After push to the github, you can view the slides online via the link: ?
+After push to the github, you can view the slides online via the link: https://klauszhangjt.github.io/TSA-FX/presentation/
