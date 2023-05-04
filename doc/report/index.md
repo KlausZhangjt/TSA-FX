@@ -16,7 +16,7 @@ Our research is based on the daily TRI series of the AUDUSD currency pair from 1
 
 And we rebalanced all the spot data with the very begin data, i.e. the "spot" data means the spot change with the initial spot, so that we have, 
 $$
-TRI_{t} = SPOT_{t} + \sum_{i=1}^{t}CARRY_{i}
+    TRI_{t} = SPOT_{t} + \sum_{i=1}^{t}CARRY_{i}
 $$
 ![tri](../img/tri.png)
 
@@ -24,13 +24,13 @@ Furthermore, we divide the data before 2020 into the train set, and the data aft
 
 ## Data Exploration and Preprocessing
 
-| **timestamp**         | **underlyer** | **trispot** | **carry**   | **active** | **version** | **log_return** |
+| **timestamp**         | **underlyer** | **tri** | **spot**   | **carry** | **log_return** |
 |-----------------------|---------------|-------------|-------------|------------|-------------|----------------|
-| 1997-03-20 19:00:00AUD | 50.090012     | 20.089139   | 0.224690    | True       | v2          | 0.001799       |
-| 1997-03-21 19:00:00AUD | 49.827164     | -0.174776   | 0.198000    | True       | v2          | -0.005261      |
-| 1997-03-24 19:00:00AUD | 50.163459     | 0.160175    | 0.207871    | True       | v2          | 0.006727       |
-| 1997-03-25 19:00:00AUD | 50.133008     | 0.129161    | 0.198581    | True       | v2          | -0.000607      |
-| 1997-03-26 19:00:00AUD | 49.511216     | -0.500142   | 0.254483    | True       | v2          | -0.012480      |
+| 1997-03-20 19:00:00 | AUD     | 50.090012    | 0.089139    | 0.224690       | 0.001799       |
+| 1997-03-21 19:00:00 | AUD     | 49.827164    | -0.174776    | 0.198000       | -0.005261      |
+| 1997-03-24 19:00:00 | AUD     | 50.163459    | 0.160175    | 0.207871       | 0.006727       |
+| 1997-03-25 19:00:00 | AUD     | 50.133008    | 0.129161    | 0.198581       | -0.000607      |
+| 1997-03-26 19:00:00 | AUD     | 49.511216    | -0.500142    | 0.254483       | -0.012480      |
 
 ### Preprocessing
 
