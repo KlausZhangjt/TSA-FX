@@ -28,13 +28,13 @@ Furthermore, we divide the data before 2020 into the train set, and the data aft
 
 ## Data Exploration and Preprocessing
 
-| **timestamp**          | **underlyer** | **trispot** | **carry** | **log_return** |
-| ---------------------- | ------------- | ----------- | --------- | -------------- |
-| 1997-03-20 19:00:00AUD | 50.090012     | 20.089139   | 0.224690  | 0.001799       |
-| 1997-03-21 19:00:00AUD | 49.827164     | -0.174776   | 0.198000  | -0.005261      |
-| 1997-03-24 19:00:00AUD | 50.163459     | 0.160175    | 0.207871  | 0.006727       |
-| 1997-03-25 19:00:00AUD | 50.133008     | 0.129161    | 0.198581  | -0.000607      |
-| 1997-03-26 19:00:00AUD | 49.511216     | -0.500142   | 0.254483  | -0.012480      |
+| **timestamp**         | **underlyer** | **tri** | **spot**   | **carry** | **log_return** |
+|-----------------------|---------------|-------------|-------------|------------|-------------|
+| 1997-03-20 19:00:00 | AUD     | 50.090012    | 0.089139    | 0.224690       | 0.001799       |
+| 1997-03-21 19:00:00 | AUD     | 49.827164    | -0.174776    | 0.198000       | -0.005261      |
+| 1997-03-24 19:00:00 | AUD     | 50.163459    | 0.160175    | 0.207871       | 0.006727       |
+| 1997-03-25 19:00:00 | AUD     | 50.133008    | 0.129161    | 0.198581       | -0.000607      |
+| 1997-03-26 19:00:00 | AUD     | 49.511216    | -0.500142    | 0.254483       | -0.012480      |
 
 ### Preprocessing
 
@@ -182,21 +182,44 @@ The plot of model prediction on train set is shown below
 
 ### Model Checking
 
-In order to check whether the model satisfies the white noise assumption, we carry out the "arima_diagnostics", the plot is shown below:
+In order to check whether the model satisfies the white noise assumption, we carry out the "arima_diagnostics" and the Ljung-Box test for residuals, the plot is shown below:
 
 ![](../img/arima_diagnostics.png)
 
-From the acf plot of residuals, we can see that the residuals are not autocorrelated. From the histogram and qqplot of residuals, we can see that the residuals are approximately normally distributed. So we can conclude that the residuals $\hat{a}_t$ are white noise, which means that the ARMA(5,5) model pass the model checking.
+|lag|lb_stat|lb_pvalue|
+|:---:|:---:|:---:|
+|1|0.235009|0.627835|
+|2|0.592110|0.743747|
+|3|0.593039|0.898024|
+|4|0.606570|0.962331|
+|5|0.608002|0.987634|
+|6|1.785471|0.938334|
+|7|1.907345|0.964790|
+|8|2.679340|0.952843|
+|9|2.700101|0.975009|
+|10|3.220838|0.975739|
+|11|4.004919|0.969773|
+|12|5.404204|0.943099|
+|13|5.466161|0.963448|
+|14|5.531658|0.976953|
+|15|5.643685|0.985132|
+|16|5.655638|0.991407|
+|17|11.512947|0.828691|
+|18|12.285142|0.832172|
+|19|12.403539|0.867660|
+|20|16.218109|0.703004|
+
+From the acf plot and the p-value of the Ljung-Box test of residuals, we can see that the residuals are not autocorrelated. From the histogram and qqplot of residuals, we can see that the residuals are approximately normally distributed. So we can conclude that the residuals $\hat{a}_t$ are white noise, which means that the ARMA(5,5) model pass the model checking.
 
 To further study, we also check the ARCH effect for the residuals. We carry out the Ljung-Box test for the squared residuals $\hat{a}_t^2$. The test results are shown below:
 
-| lag | lb_stat     | lb_pvalue     |
-| --- | ----------- | ------------- |
-| 1   | 724.688343  | 1.279950e-159 |
-| 2   | 1249.695814 | 4.285504e-272 |
-| 3   | 1745.005039 | 0.000000e+00  |
-| 4   | 3434.410211 | 0.000000e+00  |
-| 5   | 4145.335504 | 0.000000e+00  |
+| lag | lb_stat    | lb_pvalue        |
+| --- | -----------| ---------------- |
+| 1   | 655.473127 | 1.441523e-144    |
+| 2   | 1130.314543| 3.591828e-246    |
+| 3   | 1577.095845| 0.000000e+00     |
+| 4   | 3110.276390| 0.000000e+00     |
+| 5   | 3753.389311| 0.000000e+00     |
 
 From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional violatility in the log return series.
 
