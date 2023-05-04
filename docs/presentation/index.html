@@ -14713,54 +14713,208 @@ $$<img src="../img/tri.png" style="zoom:.8">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Preprocessing">Preprocessing<a class="anchor-link" href="#Preprocessing">&#182;</a></h3><p>Let time start at $t = 0$. Denote the TRI's time series by $TRI(t)$, then compute its log return $r(t)$ with</p>
+$$
+r(t) = \ln \left[\frac{TRI(t)}{TRI(t-1)}\right].
+$$<p>The log return of $TRI$ series are shown in:</p>
+<p><img src="../img/log_return.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In order to check the autocorrelation of the log return series of TRI, we perform the Ljung-Box test and plot the ACF and PACF of the log return series of TRI:</p>
+<p><img src="../img/acfs.png" alt="" /></p>
 <table>
 <thead>
 <tr>
-  <th><strong>timestamp</strong></th>
-  <th><strong>tri</strong></th>
-  <th><strong>spot</strong></th>
-  <th><strong>carry</strong></th>
-  <th><strong>log_return</strong></th>
+  <th style="text-align:center">lag</th>
+  <th style="text-align:center">lb_stat</th>
+  <th style="text-align:center">lb_pvalue</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>1997-03-20 19:00:00</td>
-  <td>50.090012</td>
-  <td>0.089139</td>
-  <td>0.224690</td>
-  <td>0.001799</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">30.394860</td>
+  <td style="text-align:center">3.524609e-08</td>
 </tr>
 <tr>
-  <td>1997-03-21 19:00:00</td>
-  <td>49.827164</td>
-  <td>-0.174776</td>
-  <td>0.198000</td>
-  <td>-0.005261</td>
+  <td style="text-align:center">2</td>
+  <td style="text-align:center">34.212607</td>
+  <td style="text-align:center">3.722433e-08</td>
 </tr>
 <tr>
-  <td>1997-03-24 19:00:00</td>
-  <td>50.163459</td>
-  <td>0.160175</td>
-  <td>0.207871</td>
-  <td>0.006727</td>
+  <td style="text-align:center">3</td>
+  <td style="text-align:center">143.265224</td>
+  <td style="text-align:center">7.470724e-31</td>
 </tr>
 <tr>
-  <td>1997-03-25 19:00:00</td>
-  <td>50.133008</td>
-  <td>0.129161</td>
-  <td>0.198581</td>
-  <td>-0.000607</td>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">210.249295</td>
+  <td style="text-align:center">2.348345e-44</td>
 </tr>
 <tr>
-  <td>1997-03-26 19:00:00</td>
-  <td>49.511216</td>
-  <td>-0.500142</td>
-  <td>0.254483</td>
-  <td>-0.012480</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center">226.225141</td>
+  <td style="text-align:center">6.889873e-47</td>
 </tr>
 </tbody>
 </table>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">&#182;</a></h3><p>Although, we can guess the hyperparameters of the ARMA model from the ACF and PACF, we still want to find the best hyperparameters by carry out a grid search. We select the hyperparameters $(p,q) \in ([1,10]\bigcap \mathbb{R})\times ([1,10]\bigcap \mathbb{R})$.</p>
+<center><img src="../img/aic.png" style="zoom:.4"></center>
+<p>We choose the model with the smallest AIC as the best model. The best model is ARMA(5,5).</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Prediction-on-train-set">Prediction on train set<a class="anchor-link" href="#Prediction-on-train-set">&#182;</a></h3><p>The plot of model prediction on train set is shown below</p>
+<p><img src="../img/arima_train_pred.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Model-Checking">Model Checking<a class="anchor-link" href="#Model-Checking">&#182;</a></h3><p>In order to check whether the model satisfies the white noise assumption, we carry out the &quot;arima_diagnostics&quot; and the Ljung-Box test for residuals, the plot is shown below:</p>
+<p><img src="../img/arima_diagnostics.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Forecasting">Forecasting<a class="anchor-link" href="#Forecasting">&#182;</a></h3><p>In practice, the data update every day. So we fixs the paramaters fitted by train set and use the test data before every next day to predict the log return of the next day. The plot of the rolling-forecasting is shown below:</p>
+<p><img src="../img/arima_forecast.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Check-ARCH-effect">Check ARCH effect<a class="anchor-link" href="#Check-ARCH-effect">&#182;</a></h2><p>To further study, we also check the ARCH effect for the residuals. We carry out the Ljung-Box test for the squared residuals $\hat{a}_t^2$. The test results are shown below:</p>
+<table>
+<thead>
+<tr>
+  <th>lag</th>
+  <th>lb_stat</th>
+  <th>lb_pvalue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>655.473127</td>
+  <td>1.441523e-144</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>1130.314543</td>
+  <td>3.591828e-246</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>1577.095845</td>
+  <td>0.000000e+00</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>3110.276390</td>
+  <td>0.000000e+00</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>3753.389311</td>
+  <td>0.000000e+00</td>
+</tr>
+</tbody>
+</table>
+<p>From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional violatility in the log return series.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="GARCH-Model">GARCH Model<a class="anchor-link" href="#GARCH-Model">&#182;</a></h2><p>We fit the GARCH(1,1) model with residuals $\hat{a}_t$ we get in the arima model.</p>
+$$
+\begin{aligned}
+a_t&amp;=\sigma_t \epsilon_t\\
+\sigma_t^2&amp;=\omega+\alpha a_{t-1}^2+\beta\sigma_{t-1}^2
+\end{aligned}
+$$<p>where $\epsilon_t\sim N(0,1)$.</p>
+<p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:</p>
+<p><img src="../img/garch_result.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Prediction-on-train-set">Prediction on train set<a class="anchor-link" href="#Prediction-on-train-set">&#182;</a></h3><p>The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:</p>
+<p><img src="../img/garch_train_pred.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Model-Checking">Model Checking<a class="anchor-link" href="#Model-Checking">&#182;</a></h3><p>In order to check whether the standardized residuals $\hat{\epsilon}_t$ satisfies the white noise assumption, we carry out the &quot;garch_diagnostics&quot;. We plot the acf, pacf, histplot qqplot of the standardized residuals. The plot is shown below:</p>
+<p><img src="../img/garch_diagnostics.png" alt="" /></p>
 
 </div>
 </div>
