@@ -12,5 +12,5 @@ train_test_split = aud[aud.timestamp.str.contains('2019')].index[-1] + 1
 train = log_return[:train_test_split]
 test = log_return[train_test_split:]
 
-np.savetxt('data/train.csv', train, delimiter=',')
-np.savetxt('data/test.csv', test, delimiter=',')
+np.savetxt('data/4r/train.csv', train, delimiter=',')
+np.savetxt('data/4r/test.csv', test, delimiter=',')
