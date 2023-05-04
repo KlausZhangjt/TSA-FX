@@ -225,7 +225,11 @@ From the table, we can see that the p-value of the Ljung-Box test is very small,
 
 ### Forecasting
 
-> To be done later
+In practice, the data update every day. So we fixs the paramaters fitted by train set and use the test data before every next day to predict the log return of the next day. The plot of the rolling-forecasting is shown below:
+
+![](../img/arima_forecast.png)
+
+In order to evaluate the forecasting performance and comparing with following Deep Learning Model in the next section, we calculate the mean squared error (MSE) of the rolling-forecasting. The MSE of the ARMA(5,5) model is 0.00740.
 
 ## GARCH Model
 
