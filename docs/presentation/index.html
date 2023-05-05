@@ -14671,9 +14671,9 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Research-Background">Research Background<a class="anchor-link" href="#Research-Background">&#182;</a></h1><p>The foreign exchange (FX) market is one of the world's largest financial markets, with daily trading volumes that can reach trillions of dollars.</p>
+<h2 id="Research-Background">Research Background<a class="anchor-link" href="#Research-Background">&#182;</a></h2><p>The foreign exchange (FX) market is one of the world's largest financial markets, with daily trading volumes that can reach trillions of dollars.</p>
 <p>The carry trade is a popular trading strategy in the FX market, from where the investors invest in high-interest currencies by borrowing in low-interest currencies with the purpose of earning the interest rate differential.</p>
-<h2 id="Research-Target">Research Target<a class="anchor-link" href="#Research-Target">&#182;</a></h2><p>Based on the methodologies of quantitative time series analysis, we reserach the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future.</p>
+<h3 id="Research-Target">Research Target<a class="anchor-link" href="#Research-Target">&#182;</a></h3><p>Based on the methodologies of quantitative time series analysis, we reserach the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future.</p>
 
 </div>
 </div>
@@ -14792,19 +14792,6 @@ $$<p>The log return of $TRI$ series are shown in:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Prediction-on-train-set">Prediction on train set<a class="anchor-link" href="#Prediction-on-train-set">&#182;</a></h3><p>The plot of model prediction on train set is shown below</p>
-<p><img src="../img/arima_train_pred.png" alt="" /></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Model-Checking">Model Checking<a class="anchor-link" href="#Model-Checking">&#182;</a></h3><p>In order to check whether the model satisfies the white noise assumption, we carry out the &quot;arima_diagnostics&quot; and the Ljung-Box test for residuals, the plot is shown below:</p>
 <p><img src="../img/arima_diagnostics.png" alt="" /></p>
 
@@ -14818,8 +14805,22 @@ $$<p>The log return of $TRI$ series are shown in:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Prediction-on-train-set">Prediction on train set<a class="anchor-link" href="#Prediction-on-train-set">&#182;</a></h3><p>The plot of model prediction on train set is shown below</p>
+<p><img src="../img/arima_train_pred.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Forecasting">Forecasting<a class="anchor-link" href="#Forecasting">&#182;</a></h3><p>In practice, the data update every day. So we fixs the paramaters fitted by train set and use the test data before every next day to predict the log return of the next day. The plot of the rolling-forecasting is shown below:</p>
 <p><img src="../img/arima_forecast.png" alt="" /></p>
+<p>We calculate the mean squared error (MSE) of the rolling-forecasting on test dataset. The MSE of the ARMA(5,5) model is 0.00740.</p>
 
 </div>
 </div>
@@ -14888,7 +14889,20 @@ a_t&amp;=\sigma_t \epsilon_t\\
 \end{aligned}
 $$<p>where $\epsilon_t\sim N(0,1)$.</p>
 <p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:</p>
-<p><img src="../img/garch_result.png" alt="" /></p>
+<img src="../img/garch_result.png" style="zoom:.6">
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Model-Checking">Model Checking<a class="anchor-link" href="#Model-Checking">&#182;</a></h3><p>In order to check whether the standardized residuals $\hat{\epsilon}_t$ satisfies the white noise assumption, we carry out the &quot;garch_diagnostics&quot;. We plot the acf, pacf, histplot qqplot of the standardized residuals. The plot is shown below:</p>
+<p><img src="../img/garch_diagnostics.png" alt="" /></p>
 
 </div>
 </div>
@@ -14913,8 +14927,162 @@ $$<p>where $\epsilon_t\sim N(0,1)$.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Model-Checking">Model Checking<a class="anchor-link" href="#Model-Checking">&#182;</a></h3><p>In order to check whether the standardized residuals $\hat{\epsilon}_t$ satisfies the white noise assumption, we carry out the &quot;garch_diagnostics&quot;. We plot the acf, pacf, histplot qqplot of the standardized residuals. The plot is shown below:</p>
-<p><img src="../img/garch_diagnostics.png" alt="" /></p>
+<h2 id="Deep-Learning-Model">Deep Learning Model<a class="anchor-link" href="#Deep-Learning-Model">&#182;</a></h2><p>Nowaday, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="RNN">RNN<a class="anchor-link" href="#RNN">&#182;</a></h3><p>RNN generally takes sequence data as input and effectively captures the relationship features between sequences through the internal structure design of the network. It is also generally output in the form of sequences.</p>
+<p>General single-layer neural network structure:</p>
+<p float="left">
+  <img src="http://121.199.45.168:8002/img/RNN2.gif" width="30%"/>
+  <img src="http://121.199.45.168:8002/img/21.png" width="60%"/> 
+</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Experiment-on-RNN-with-TRI-series">Experiment on RNN with TRI series<a class="anchor-link" href="#Experiment-on-RNN-with-TRI-series">&#182;</a></h3><p>In our experiment, we fix the number of training epochs and change the number of hidden units, which represents the capacity of the model, from low to high. Here is the experiment results:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">number of hidden units</th>
+  <th style="text-align:center">logical error</th>
+  <th style="text-align:center">mean squared error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">0.4934</td>
+  <td style="text-align:center">0.1244</td>
+</tr>
+<tr>
+  <td style="text-align:center">8</td>
+  <td style="text-align:center">0.4326</td>
+  <td style="text-align:center">0.1228</td>
+</tr>
+<tr>
+  <td style="text-align:center">16</td>
+  <td style="text-align:center">0.4345</td>
+  <td style="text-align:center">0.1229</td>
+</tr>
+<tr>
+  <td style="text-align:center">32</td>
+  <td style="text-align:center">0.4953</td>
+  <td style="text-align:center">0.1243</td>
+</tr>
+<tr>
+  <td style="text-align:center">64</td>
+  <td style="text-align:center">0.4801</td>
+  <td style="text-align:center">0.1238</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Experiment-on-RNN-with-TRI-series">Experiment on RNN with TRI series<a class="anchor-link" href="#Experiment-on-RNN-with-TRI-series">&#182;</a></h3><p>We pick the model with 8 hidden units, and plot the prediction results:</p>
+<center><img src="../img/RNN-8.png" style="zoom:.6"></center>
+<p>From the above results, we can see that the RNN model fits well as a regressor. Its prediction curve is very close to the real one. But it has poor performance on logical error.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="LSTM">LSTM<a class="anchor-link" href="#LSTM">&#182;</a></h3><p>LSTM is a variant of traditional RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.</p>
+<p>The structure of LSTM:</p>
+<p><img src="http://121.199.45.168:8002/img/31.png" alt="Structure of RNN" /></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Experiment-on-LSTM-with-TRI-series">Experiment on LSTM with TRI series<a class="anchor-link" href="#Experiment-on-LSTM-with-TRI-series">&#182;</a></h3><p>We follow the same experiment setting as RNN, fixing the number of training epochs and change the number of hidden units from low to high. Here is the experiment results:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">number of hidden units</th>
+  <th style="text-align:center">logical error</th>
+  <th style="text-align:center">mean squared error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">10</td>
+  <td style="text-align:center">0.2473</td>
+  <td style="text-align:center">0.2379</td>
+</tr>
+<tr>
+  <td style="text-align:center">40</td>
+  <td style="text-align:center">0.1877</td>
+  <td style="text-align:center">0.1977</td>
+</tr>
+<tr>
+  <td style="text-align:center">60</td>
+  <td style="text-align:center">0.2437</td>
+  <td style="text-align:center">0.2577</td>
+</tr>
+<tr>
+  <td style="text-align:center">100</td>
+  <td style="text-align:center">0.2076</td>
+  <td style="text-align:center">0.1996</td>
+</tr>
+<tr>
+  <td style="text-align:center">200</td>
+  <td style="text-align:center">0.2491</td>
+  <td style="text-align:center">0.2323</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Experiment-on-LSTM-with-TRI-series">Experiment on LSTM with TRI series<a class="anchor-link" href="#Experiment-on-LSTM-with-TRI-series">&#182;</a></h3><p>Here is the prediction results of the model with 40 hidden units:</p>
+<center><img src="../img/LSTM-40.png" style="zoom:.6"></center
+<p>From the above results, we can see that the LSTM model has a moderate performance on MSE. But it performs much better on logical error than RNN, which means that it's more practical and reliable.</p>
 
 </div>
 </div>

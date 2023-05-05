@@ -229,7 +229,7 @@ In practice, the data update every day. So we fixs the paramaters fitted by trai
 
 ![](../img/arima_forecast.png)
 
-In order to evaluate the forecasting performance and comparing with following Deep Learning Model in the next section, we calculate the mean squared error (MSE) of the rolling-forecasting. The MSE of the ARMA(5,5) model is 0.00740.
+In order to evaluate the forecasting performance and comparing with following Deep Learning Model in the next section, we calculate the mean squared error (MSE) of the rolling-forecasting on test dataset. The MSE of the ARMA(5,5) model is 0.00740.
 
 ## GARCH Model
 
@@ -309,6 +309,8 @@ We also carry out the Ljung-Box test for the squared standardized residuals $\ha
 From the table, we can see that the p-value of the Ljung-Box test is large, which means that the squared standardized residuals $\hat{\epsilon}_t$ are not serial correlated. So we can conclude that the GARCH(1,1) pass the model checking.
 
 ## Deep Learning Model
+
+Nowaday, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.
 
 ### RNN
 
