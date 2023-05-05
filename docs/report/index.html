@@ -2653,7 +2653,7 @@ Alternative Hypothesis: The process is weakly stationary.</code></pre>
 <h3 class="atx" id="model-selection">Model Selection</h3>
 <p>In order to determine the parameters of the ARMA model, we plot the ACF and PACF of the log return series of TRI:</p>
 <p><img alt="" src="../img/acfs.png"></p>
-<p>Although, we can guess the hyperparameters of the ARMA model from the ACF and PACF, we still want to find the best hyperparameters by carry out a grid search. We select the hyperparameters <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="margin-right:0.03588em;" class="mord mathnormal">q</span><span class="mclose">)</span><span style="margin-right:0.2778em;" class="mspace"></span><span class="mrel">∈</span><span style="margin-right:0.2778em;" class="mspace"></span></span><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mopen">([</span><span class="mord">1</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord">10</span><span class="mclose">]</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="position:relative;top:0em;" class="mop op-symbol small-op">⋂</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord mathbb">R</span><span class="mclose">)</span><span style="margin-right:0.2222em;" class="mspace"></span><span class="mbin">×</span><span style="margin-right:0.2222em;" class="mspace"></span></span><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mopen">([</span><span class="mord">1</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord">10</span><span class="mclose">]</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="position:relative;top:0em;" class="mop op-symbol small-op">⋂</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord mathbb">R</span><span class="mclose">)</span></span></span></span>. </p>
+<p>Although, we can guess the hyperparameters of the ARMA model from the ACF and PACF, we still want to find the best hyperparameters by carry out a grid search. We select the hyperparameters <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="margin-right:0.03588em;" class="mord mathnormal">q</span><span class="mclose">)</span><span style="margin-right:0.2778em;" class="mspace"></span><span class="mrel">∈</span><span style="margin-right:0.2778em;" class="mspace"></span></span><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mopen">([</span><span class="mord">1</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord">10</span><span class="mclose">]</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="position:relative;top:0em;" class="mop op-symbol small-op">⋂</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord mathbb">N</span><span class="mclose">)</span><span style="margin-right:0.2222em;" class="mspace"></span><span class="mbin">×</span><span style="margin-right:0.2222em;" class="mspace"></span></span><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mopen">([</span><span class="mord">1</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord">10</span><span class="mclose">]</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="position:relative;top:0em;" class="mop op-symbol small-op">⋂</span><span style="margin-right:0.1667em;" class="mspace"></span><span class="mord mathbb">N</span><span class="mclose">)</span></span></span></span>. </p>
 <p>We choose the model with the smallest AIC as the best model. The best model is ARMA(5,5). The AIC of each candidate model is shown in this matrix plot:</p>
 <p><img alt="" src="../img/aic.png"></p>
 <p>The summary of the best model is shown in the following table:</p>
@@ -2967,7 +2967,7 @@ beta[1]        0.9980  9.226e-04   1081.738      0.000       [  0.996,  1.000]
 <p>The plot of prediction of violatility <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:0.8444em;vertical-align:-0.15em;" class="strut"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span style="height:0.6944em;" class="vlist"><span style="top:-3em;"><span style="height:3em;" class="pstrut"></span><span style="margin-right:0.03588em;" class="mord mathnormal">σ</span></span><span style="top:-3em;"><span style="height:3em;" class="pstrut"></span><span style="left:-0.25em;" class="accent-body"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span style="height:0.2806em;" class="vlist"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span style="height:2.7em;" class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span style="height:0.15em;" class="vlist"><span></span></span></span></span></span></span></span></span></span> and ground truth of log return <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:0.5806em;vertical-align:-0.15em;" class="strut"></span><span class="mord"><span style="margin-right:0.02778em;" class="mord mathnormal">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span style="height:0.2806em;" class="vlist"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span style="height:2.7em;" class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span style="height:0.15em;" class="vlist"><span></span></span></span></span></span></span></span></span></span> is shown below:</p>
 <p><img alt="" src="../img/egarch_train_pred.png"></p>
 <h2 class="atx" id="deep-learning-model">Deep Learning Model</h2>
-<p>Nowaday, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.</p>
+<p>Nowadays, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.</p>
 <p>In this section, we are going to explore the sequential neural network models, including RNN, LSTM, use them to predict the price of TRI series. For these models, we use the price of TRI series directly without difference.</p>
 <h3 class="atx" id="rnn">RNN</h3>
 <p>RNN generally takes sequence data as input and effectively captures the relationship features between sequences through the internal structure design of the network. It is also generally output in the form of sequences.<br>The loop mechanism of RNN enables the results generated by the previous time step in the hidden layer of the model to be a part of the input of the current time step (the input of the current time step includes not only the normal input but also the output of the previous hidden layer), which has an impact on the output of the current time step.<br>Here is the structure of RNN:  </p>
@@ -3013,10 +3013,10 @@ beta[1]        0.9980  9.226e-04   1081.738      0.000       [  0.996,  1.000]
 </tbody></table>
 <p>The mean square error are widely used to evaluate the fitness of regressor. It computes the absolute divergence, which is symmetric for both overestimated and underestimated predictions. But for financial time series, we may rely on the prediction to decide to buy or sell, so it's critical to forecast the correct trend. We introduce the logical error to reflect that. It's a binary classification error, which counts whether our model predicts the correct trend.</p>
 <p>We pick the model with 8 hidden units, and plot the prediction results:</p>
-<p><img alt="" src="../img/RNN-8.png"></p>
+<p><img alt="" src="../img/rnn.png"></p>
 <p>From the above results, we can see that the RNN model fits well as a regressor. Its prediction curve is very close to the real one. But it has poor performance on logical error.</p>
 <h3 class="atx" id="lstm">LSTM</h3>
-<p>LSTM is a variant of traditional RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.<br>It is divided into four parts: Forgotten Gate, Input gate, Cell state, Output gate. </p>
+<p>LSTM is a variant of traditional RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN. At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.<br>It is divided into four parts: Forgotten Gate, Input gate, Cell state, Output gate. </p>
 <p>The structure shows below:</p>
 <p><img alt="Structure of RNN" src="../img/dl/31.png"></p>
 <p><img alt="Structure of RNN" src="../img/dl/22.png"></p>
@@ -3064,12 +3064,48 @@ beta[1]        0.9980  9.226e-04   1081.738      0.000       [  0.996,  1.000]
 </tr>
 </tbody></table>
 <p>Here is the prediction results of the model with 40 hidden units:</p>
-<p><img alt="" src="../img/LSTM-40.png"></p>
+<p><img alt="" src="../img/lstm.png"></p>
 <p>From the above results, we can see that the LSTM model has a moderate performance on MSE. But it performs much better on logical error than RNN, which means that it's more practical and reliable.</p>
 <h3 class="atx" id="transformer">Transformer</h3>
 <p>Here is the structure of transformer: </p>
 <p><img alt="Structure of Transformer" src="../img/dl/4.png"></p>
-<p>We use the positional embedding method of NLP to get the result. And if we want to do more with transformer, we will need a more useful way for positional embedding.  </p>
+<p>We use the positional embedding method of NLP to get the result. And if we want to do more with transformer, we will need a more useful way for positional embedding. </p>
+<p>Here is the experiment results:</p>
+<table>
+<thead>
+<tr>
+<th align="center">number of hidden units</th>
+<th align="center">logical error</th>
+<th align="center">mean squared error</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">32</td>
+<td align="center">0.5838</td>
+<td align="center">2.8302</td>
+</tr>
+<tr>
+<td align="center">64</td>
+<td align="center">0.5839</td>
+<td align="center">2.8134</td>
+</tr>
+<tr>
+<td align="center">128</td>
+<td align="center">0.5838</td>
+<td align="center">2.7664</td>
+</tr>
+<tr>
+<td align="center">256</td>
+<td align="center">0.5820</td>
+<td align="center">2.7088</td>
+</tr>
+<tr>
+<td align="center">512</td>
+<td align="center">0.5820</td>
+<td align="center">2.6080</td>
+</tr>
+</tbody></table>
+<p>We can find that the transformer's performance is poor. Its mean squared error is larger than RNN/LSTM by an order of magnitude, which shows that it doesn't capture the correct signal of the time series.</p>
 <h2 class="atx" id="conclusion">Conclusion</h2>
 <p>In conclusion, we drived ARIMA model to predict the log-return, GARCH model to describe the volitility of log-return, and neural network models to predict the price. And from the result of model checking, we can see our ARIMA and GARCH model all passed model checking, i.e. the residual of our models satisfied the characteristics of white noise. And from the MSE perspective, our models have a good performance on prediction. But from another perspective, for the future direction of TRI movement, our models can't capture the future trend greatly, where neural network models have a better performnace. </p>
 </article>
