@@ -397,7 +397,7 @@ From the above results, we can see that the RNN model fits well as a regressor. 
 
 ### LSTM
 
-LSTM is a variant of traditional RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN. At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.  
+LSTM is a variant of classical RNN, which can effectively capture semantic associations between long sequences and alleviate gradient vanishing or exploding phenomena compared to classical RNN. At the same time, the structure of LSTM is more complex, and its core structure can be divided into four parts to analyze.  
 It is divided into four parts: Forgotten Gate, Input gate, Cell state, Output gate. 
 
 The structure shows below:
