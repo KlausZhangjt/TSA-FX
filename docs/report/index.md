@@ -107,6 +107,8 @@ The test results show that the p-value is less than 0.05, so we reject the null 
 
 ## ARMA Model
 
+In this section, we are going to fit an ARMA model to the log return series of TRI.
+
 ### Introduction
 
 The ARMA model is a combination of the AR model and the MA model. The ARMA model is defined as:
@@ -117,7 +119,16 @@ $$
 \end{aligned}
 $$
 
-where $\phi(B)=1-\phi_1B-\phi_2B^2-\cdots-\phi_pB^p$, $\psi(B)=1+\psi_1B+\psi_2B^2+\cdots+\psi_qB^q$, $a_t\sim N(0,\sigma^2)$, $\mu$ is the mean of $r_t$.
+where $r_t$ is the log return of our TRI series, 
+
+$$
+\begin{cases}
+\phi(B)&=1-\phi_1B-\phi_2B^2-\cdots-\phi_pB^p\\
+\psi(B)&=1+\psi_1B+\psi_2B^2+\cdots+\psi_qB^q\\
+\end{cases}
+$$
+
+and $a_t\sim N(0,\sigma^2)$, $\mu$ is the mean of $r_t$.
 
 ### Model Selection
 
