@@ -415,24 +415,5 @@ We use the positional embedding method of NLP to get the result. And if we want 
 
 ## Conclusion
 
-In conclusion, we drived ARIMA model to predict the log-return, GARCH model to describe the volitility of log-return, and neural network models to predict the price. And from the result of model checking, we can see our ARIMA and GARCH model all passed model checking, i.e. the residual of our models satisfied the characteristics of white noise. And from the MSE perspective, our models have a good performance on prediction. But from another perspective, for the future direction of TRI movement, our models can't capture the future trend greatly, where neural network models have a better performnace.
+In conclusion, we drived ARIMA model to predict the log-return, GARCH model to describe the volitility of log-return, and neural network models to predict the price. And from the result of model checking, we can see our ARIMA and GARCH model all passed model checking, i.e. the residual of our models satisfied the characteristics of white noise. And from the MSE perspective, our models have a good performance on prediction. But from another perspective, for the future direction of TRI movement, our models can't capture the future trend greatly, where neural network models have a better performnace. 
 
-## Reference
-
-[1] [ARIMA model](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[2] [GARCH model](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[3] [RNN](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[4] [LSTM](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[5] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[6] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[7] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[8] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[9] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[10] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[11] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[12] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[13] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[14] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[15] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[16] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7e)  
-[17] [Transformer](https://www.jianshu.com/p/7f2e6b9c4d7
