@@ -391,7 +391,7 @@ The mean square error are widely used to evaluate the fitness of regressor. It c
 
 We pick the model with 8 hidden units, and plot the prediction results:
 
-![](../img/RNN-8.png)
+![](../img/rnn.png)
 
 From the above results, we can see that the RNN model fits well as a regressor. Its prediction curve is very close to the real one. But it has poor performance on logical error.
 
@@ -439,7 +439,7 @@ We follow the same experiment setting as RNN, fixing the number of training epoc
 
 Here is the prediction results of the model with 40 hidden units:
 
-![](../img/LSTM-40.png)
+![](../img/lstm.png)
 
 From the above results, we can see that the LSTM model has a moderate performance on MSE. But it performs much better on logical error than RNN, which means that it's more practical and reliable.
 
