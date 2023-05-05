@@ -134,7 +134,7 @@ In order to determine the parameters of the ARMA model, we plot the ACF and PACF
 
 ![](../img/acfs.png)
 
-Although, we can guess the hyperparameters of the ARMA model from the ACF and PACF, we still want to find the best hyperparameters by carry out a grid search. We select the hyperparameters $(p,q) \in ([1,10]\bigcap \mathbb{R})\times ([1,10]\bigcap \mathbb{R})$. 
+Although, we can guess the hyperparameters of the ARMA model from the ACF and PACF, we still want to find the best hyperparameters by carry out a grid search. We select the hyperparameters $(p,q) \in ([1,10]\bigcap \mathbb{N})\times ([1,10]\bigcap \mathbb{N})$. 
 
 We choose the model with the smallest AIC as the best model. The best model is ARMA(5,5). The AIC of each candidate model is shown in this matrix plot:
 
