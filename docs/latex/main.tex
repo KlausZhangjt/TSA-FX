@@ -20,7 +20,11 @@
 \maketitle
 
 \begin{abstract}
-    In this project, \\
+    In this project, we apply the methodologies of quantitative time series analysis to the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future. 
+    We first use the ARIMA model to fit the log return of TRI series, and then use the GARCH model to fit the residuals of ARIMA model. 
+    We combine the ARIMA model and GARCH model to get the final prediction on the log return of TRI series and describe the volatility of the series. 
+    Then we use the sequential neural network models to predict the price of the TRI series. 
+    Finally, we compare the performance of the two models and discuss the advantages and disadvantages of the two models.\\
     The code of this project is available at \url{https://github.com/KlausZhangjt/TSA-FX}.
     \keywords{Quantitative time series analysis  \and FX market \and ARIMA-GARCH.}
 \end{abstract}
@@ -450,6 +454,8 @@ We also carry out the Ljung-Box test for the squared standardized residuals $\ha
 
 \begin{table}[htbp]
     \centering
+    \caption{Ljung-Box test for squared standardized residuals}
+    \label{tab:4}
     \begin{tabularx}{\textwidth}{|C|C|C|}
         \hline
         lag & lb\_stat & lb\_pvalue \\
@@ -466,8 +472,6 @@ We also carry out the Ljung-Box test for the squared standardized residuals $\ha
         10  & 3.220838 & 0.975739   \\
         \hline
     \end{tabularx}
-    \caption{Ljung-Box test for squared standardized residuals}
-    \label{tab:4}
 \end{table}
 
 From the table, we can see that the p-value of the Ljung-Box test is large, which means that the squared standardized residuals $\hat{\epsilon}_t$ are not serial correlated. So we can conclude that the GARCH(1,1) pass the model checking.
@@ -560,6 +564,8 @@ In our experiment, we fix the number of training epochs and change the number of
 
 \begin{table}[htbp]
     \centering
+    \caption{RNN model result}
+    \label{tab:5}
     \begin{tabularx}{\textwidth}{|C|C|C|}
         \hline
         number of hidden units & logical error & mean squared error \\
@@ -575,8 +581,6 @@ In our experiment, we fix the number of training epochs and change the number of
         64 & 0.4801 & 0.1238 \\
         \hline
     \end{tabularx}
-    \caption{RNN model result}
-    \label{tab:5}
 \end{table}
 
 The mean square error are widely used to evaluate the fitness of regressor. It computes the absolute divergence, which is symmetric for both overestimated and underestimated predictions. But for financial time series, we may rely on the prediction to decide to buy or sell, so it's critical to forecast the correct trend. We introduce the logical error to reflect that. It's a binary classification error, which counts whether our model predicts the correct trend.
@@ -623,6 +627,8 @@ The experiment results are shown in Table \ref{tab:6}.
 
 \begin{table}[htbp]
     \centering
+    \caption{LSTM model result}
+    \label{tab:6}
     \begin{tabularx}{\textwidth}{|C|C|C|}
         \hline
         number of hidden units & logical error & mean squared error \\
@@ -638,8 +644,6 @@ The experiment results are shown in Table \ref{tab:6}.
         200 & 0.2491 & 0.2323 \\
         \hline
     \end{tabularx}
-    \caption{LSTM model result}
-    \label{tab:6}
 \end{table}
 
 The prediction results of the model with 40 hidden units is shown in Fig.~\ref{fig:17}.
@@ -682,6 +686,8 @@ The experiment results is shown in Table \ref{tab:7}.
 
 \begin{table}[htbp]
     \centering
+    \caption{Transformer model result}
+    \label{tab:7}
     \begin{tabularx}{\textwidth}{|C|C|C|}
         \hline
         number of hidden units & logical error & mean squared error \\
@@ -697,8 +703,6 @@ The experiment results is shown in Table \ref{tab:7}.
         512 & 0.5820 & 2.6080 \\
         \hline
     \end{tabularx}
-    \caption{Transformer model result}
-    \label{tab:7}
 \end{table}
 
 We can find that the transformer's performance is poor. Its mean squared error is larger than RNN/LSTM by an order of magnitude, which shows that it doesn't capture the correct signal of the time series.
