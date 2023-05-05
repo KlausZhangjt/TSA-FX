@@ -449,7 +449,19 @@ Here is the structure of transformer:
 
 ![Structure of Transformer](../img/dl/4.png)
 
-We use the positional embedding method of NLP to get the result. And if we want to do more with transformer, we will need a more useful way for positional embedding.  
+We use the positional embedding method of NLP to get the result. And if we want to do more with transformer, we will need a more useful way for positional embedding. 
+
+Here is the experiment results:
+
+| number of hidden units | logical error | mean squared error |
+|:----------------------:|:-------------:|:------------------:|
+|           32           |     0.5838    |       2.8302       |
+|           64           |     0.5839    |       2.8134       |
+|           128          |     0.5838    |       2.7664       |
+|           256          |     0.5820    |       2.7088       |
+|           512          |     0.5820    |       2.6080       |
+
+We can find that the transformer's performance is poor. Its mean squared error is larger than RNN/LSTM by an order of magnitude, which shows that it doesn't capture the correct signal of the time series.
 
 ## Conclusion
 
