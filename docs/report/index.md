@@ -103,8 +103,6 @@ In order to check the autocorrelation of the log return series of TRI, we perfor
 
 The test results show that the p-value is less than 0.05, so we reject the null hypothesis and we make sure that the log return series is autocorrelated.   
 
-## Modelling
-
 ## ARMA Model
 
 In this section, we are going to fit an ARMA model to the log return series of TRI.
