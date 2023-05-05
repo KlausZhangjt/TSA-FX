@@ -319,9 +319,49 @@ We also carry out the Ljung-Box test for the squared standardized residuals $\ha
 
 From the table, we can see that the p-value of the Ljung-Box test is large, which means that the squared standardized residuals $\hat{\epsilon}_t$ are not serial correlated. So we can conclude that the GARCH(1,1) pass the model checking.
 
+### EGARCH Variant
+
+For further improvement, we also fit the EGARCH(1,1) model. The summary of the model is shown below:
+
+```text
+                       Zero Mean - EGARCH Model Results                       
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.000
+Mean Model:                 Zero Mean   Adj. R-squared:                  0.000
+Vol Model:                     EGARCH   Log-Likelihood:               -9187.15
+Distribution:                  Normal   AIC:                           18382.3
+Method:            Maximum Likelihood   BIC:                           18409.1
+                                        No. Observations:                 5945
+Date:                Fri, May 05 2023   Df Residuals:                     5945
+Time:                        14:11:06   Df Model:                            0
+                               Volatility Model                               
+==============================================================================
+                 coef    std err          t      P>|t|        95.0% Conf. Int.
+------------------------------------------------------------------------------
+omega      4.6918e-03  1.648e-03      2.848  4.404e-03   [1.463e-03,7.921e-03]
+alpha[1]       0.1289  1.469e-02      8.778  1.668e-18       [  0.100,  0.158]
+gamma[1]      -0.0370  8.228e-03     -4.500  6.784e-06 [-5.316e-02,-2.090e-02]
+beta[1]        0.9980  9.226e-04   1081.738      0.000       [  0.996,  1.000]
+==============================================================================
+```
+
+From the summary, we can see that the p-value of each parameter is less than 0.05, so we can reject the null hypothesis that the parameter is 0.
+
+The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:
+
+![](../img/egarch_result.png)
+
+From the plot and compare with result by GARCH model, we can see the conditional violatility of the log return series is similar as GARCH model. 
+
+The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:
+
+![](../img/egarch_train_pred.png)
+
 ## Deep Learning Model
 
 Nowaday, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.
+
+In this section, we are going to explore the sequential neural network models, including RNN, LSTM, use them to predict the price of TRI series.
 
 ### RNN
 

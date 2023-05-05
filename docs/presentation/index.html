@@ -14659,7 +14659,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Title-Here">Title Here<a class="anchor-link" href="#Title-Here">&#182;</a></h1><p>author1,author2,author3,author4</p>
+<h1 id="Quantitative-time-series-analysis-on-FX-market">Quantitative time series analysis on FX market<a class="anchor-link" href="#Quantitative-time-series-analysis-on-FX-market">&#182;</a></h1><p>FAN Yifei, WANG Sizhe, WU Shihao, ZHANG Juntao</p>
 
 </div>
 </div>
@@ -14951,7 +14951,24 @@ $$<p>where $\epsilon_t\sim N(0,1)$.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="EGARCH">EGARCH<a class="anchor-link" href="#EGARCH">&#182;</a></h3><p>For further improvement, we also fit the EGARCH(1,1) model. The summary of the model is shown below:</p>
+<p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:</p>
+<img src="../img/egarch_result.png" style="zoom:.4">
+<p>The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:</p>
+<img src="../img/egarch_train_pred.png" style="zoom:.4">
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Deep-Learning-Model">Deep Learning Model<a class="anchor-link" href="#Deep-Learning-Model">&#182;</a></h2><p>Nowaday, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.</p>
+<p>In this section, we are going to explore the sequential neural network models, including RNN, LSTM, use them to predict the price of TRI series.</p>
 
 </div>
 </div>
@@ -15108,6 +15125,29 @@ $$<p>where $\epsilon_t\sim N(0,1)$.</p>
 <center><img src="../img/LSTM-40.png" style="zoom:.6"></center
 <p>From the above results, we can see that the LSTM model has a moderate performance on MSE. But it performs much better on logical error than RNN, which means that it's more practical and reliable.</p>
 
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>In conclusion, we drived ARIMA model to predict the log-return, GARCH model to describe the volitility of log-return, and neural network models to predict the price. And from the result of model checking, we can see our ARIMA and GARCH model all passed model checking, i.e. the residual of our models satisfied the characteristics of white noise. And from the MSE perspective, our models have a good performance on prediction. But from another perspective, for the future direction of TRI movement, our models can't capture the future trend greatly, where neural network models have a better performnace.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Thanks-for-your-listening!">Thanks for your listening!<a class="anchor-link" href="#Thanks-for-your-listening!">&#182;</a></h2>
 </div>
 </div>
 </div>
