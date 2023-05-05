@@ -33,7 +33,7 @@
 
 The foreign exchange (FX) market is one of the world's largest financial markets, with daily trading volumes that can reach trillions of dollars. It is composed of various participants, including banks, forex dealers, commercial companies, central banks, investment management firms, hedge funds, retail forex dealers, and individual investors. And participants in FX market can buy, sell, exchange, and speculate on the relative exchange rates of various currency pairs.
 
-The carry trade is a popular trading strategy in the FX market, from where the investors invest in high-interest currencies by borrowing in low-interest currencies with the purpose of earning the interest rate differential. The primary risks of carry trade include exchange rate fluctuations and changes in interest rates, traders have to take risks in order to achieve excess returns. So how to dynamically adjust our trading direction is of vital importance, which needs our judgement of the macro-economic situation and robust prediction of the future price.
+The carry trade is a popular trading strategy in the FX market\cite{heath2007evidence}, from where the investors invest in high-interest currencies by borrowing in low-interest currencies with the purpose of earning the interest rate differential. The primary risks of carry trade include exchange rate fluctuations and changes in interest rates, traders have to take risks in order to achieve excess returns. So how to dynamically adjust our trading direction is of vital importance\cite{cenedese2014foreign}, which needs our judgement of the macro-economic situation and robust prediction of the future price.
 
 Based on the methodologies of quantitative time series analysis, we reserach the TRI series of AUD-USD currency pair, aim to fitting a significant model with historical data and getting solid predictions of future.
 
@@ -314,7 +314,7 @@ the plot is shown in Fig.~\ref{fig:7} and the result of Ljung-Box test is shown 
 
 From the acf plot and the p-value of the Ljung-Box test of residuals, we can see that the residuals are not autocorrelated. From the histogram and qqplot of residuals, we can see that the residuals are approximately normally distributed. So we can conclude that the residuals $\hat{a}_t$ are white noise, which means that the ARMA(5,5) model pass the model checking.
 
-To further study, we also check the ARCH effect for the residuals. We carry out the Ljung-Box test for the squared residuals $\hat{a}_t^2$.
+To further study, we also check the ARCH effect for the residuals\cite{tang2003finite}. We carry out the Ljung-Box test for the squared residuals $\hat{a}_t^2$.
 The test results are shown below in Table~\ref{tab:3}.
 
 % | lag | lb_stat     | lb_pvalue     |
