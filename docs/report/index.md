@@ -1,4 +1,4 @@
-# Title Here
+# Quantitative time series analysis on FX market
 
 ## Research Background
 
