@@ -14893,7 +14893,7 @@ $$<p>and $a_t\sim N(0,\sigma^2)$, $\mu$ is the mean of $r_t$.</p>
 </tr>
 </tbody>
 </table>
-<p>From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional violatility in the log return series.</p>
+<p>From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional volatility in the log return series.</p>
 
 </div>
 </div>
@@ -14912,7 +14912,7 @@ a_t&amp;=\sigma_t \epsilon_t\\
 \sigma_t^2&amp;=\omega+\alpha a_{t-1}^2+\beta\sigma_{t-1}^2
 \end{aligned}
 $$<p>where $\epsilon_t\sim N(0,1)$.</p>
-<p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:</p>
+<p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted volatility $\hat{\sigma}_t$ are shown below:</p>
 <img src="../img/garch_result.png" style="zoom:.6">
 
 </div>
@@ -14938,7 +14938,7 @@ $$<p>where $\epsilon_t\sim N(0,1)$.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Prediction-on-train-set">Prediction on train set<a class="anchor-link" href="#Prediction-on-train-set">&#182;</a></h3><p>The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:</p>
+<h3 id="Prediction-on-train-set">Prediction on train set<a class="anchor-link" href="#Prediction-on-train-set">&#182;</a></h3><p>The plot of prediction of volatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:</p>
 <p><img src="../img/garch_train_pred.png" alt="" /></p>
 
 </div>
@@ -14952,9 +14952,9 @@ $$<p>where $\epsilon_t\sim N(0,1)$.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="EGARCH">EGARCH<a class="anchor-link" href="#EGARCH">&#182;</a></h3><p>For further improvement, we also fit the EGARCH(1,1) model. The summary of the model is shown below:</p>
-<p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:</p>
+<p>The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted volatility $\hat{\sigma}_t$ are shown below:</p>
 <img src="../img/egarch_result.png" style="zoom:.4">
-<p>The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:</p>
+<p>The plot of prediction of volatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:</p>
 <img src="../img/egarch_train_pred.png" style="zoom:.4">
 
 </div>

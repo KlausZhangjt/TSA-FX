@@ -342,7 +342,7 @@ The test results are shown below in Table~\ref{tab:3}.
     \end{tabularx}
 \end{table}
 
-From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional violatility in the log return series.
+From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional volatility in the log return series.
 
 \subsubsection{Forecasting}
 
@@ -397,7 +397,7 @@ beta[1]        0.9347  6.803e-03    137.386      0.000     [  0.921,  0.948]
 From the summary, we can see that the p-value of each parameter is less than 0.05, so we can reject the null hypothesis that the parameter is 0.
 
 The fitted standardized residuals $\hat{\epsilon}_t$ and
-the fitted violatility $\hat{\sigma}_t$ are shown in Fig.~\ref{fig:9}.
+the fitted volatility $\hat{\sigma}_t$ are shown in Fig.~\ref{fig:9}.
 
 %![](../img/garch_result.png)
 
@@ -408,7 +408,7 @@ the fitted violatility $\hat{\sigma}_t$ are shown in Fig.~\ref{fig:9}.
     \label{fig:9}
 \end{figure}
 
-The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown in Fig.~\ref{fig:10}.
+The plot of prediction of volatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown in Fig.~\ref{fig:10}.
 
 %![](../img/garch_train_pred.png)
 
@@ -435,7 +435,7 @@ The plot is shown below in Fig.~\ref{fig:11}.
 
 From the acf plot, we can see that the standardized residuals are not serial correlated. From the histogram and qqplot of the standardized residuals, we can see that the standardized residuals are approximately normally distributed. So we can conclude that the standardized residuals $\hat{\epsilon}_t$ are white noise.
 
-From the plot, we can see that the GARCH(1,1) model can capture the conditional violatility of the log return series well.
+From the plot, we can see that the GARCH(1,1) model can capture the conditional volatility of the log return series well.
 
 We also carry out the Ljung-Box test for the squared standardized residuals $\hat{\epsilon}_t$. The test results are shown below in Table \ref{tab:4}.
 
@@ -504,7 +504,7 @@ beta[1]        0.9980  9.226e-04   1081.738      0.000       [  0.996,  1.000]
 
 From the summary, we can see that the p-value of each parameter is less than 0.05, so we can reject the null hypothesis that the parameter is 0.
 
-The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown in Fig.~\ref{fig:12}.
+The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted volatility $\hat{\sigma}_t$ are shown in Fig.~\ref{fig:12}.
 
 % ![](../img/egarch_result.png)
 
@@ -515,9 +515,9 @@ The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility 
     \label{fig:12}
 \end{figure}
 
-From the plot and compare with result by GARCH model, we can see the conditional violatility of the log return series is similar as GARCH model. 
+From the plot and compare with result by GARCH model, we can see the conditional volatility of the log return series is similar as GARCH model. 
 
-The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown in Fig.~\ref{fig:13}.
+The plot of prediction of volatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown in Fig.~\ref{fig:13}.
 
 % ![](../img/egarch_train_pred.png)
 

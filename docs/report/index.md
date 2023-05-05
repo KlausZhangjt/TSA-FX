@@ -230,7 +230,7 @@ To further study, we also check the ARCH effect for the residuals. We carry out 
 | 4   | 3110.276390 | 0.000000e+00  |
 | 5   | 3753.389311 | 0.000000e+00  |
 
-From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional violatility in the log return series.
+From the table, we can see that the p-value of the Ljung-Box test is very small, which means that the squared residuals $\hat{a}_t^2$ are serial correlated. The ARCH effect exists in the residuals. Then we should consider the GARCH model to study the conditional volatility in the log return series.
 
 ### Forecasting
 
@@ -282,15 +282,15 @@ beta[1]        0.9347  6.803e-03    137.386      0.000     [  0.921,  0.948]
 
 From the summary, we can see that the p-value of each parameter is less than 0.05, so we can reject the null hypothesis that the parameter is 0.
 
-The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:
+The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted volatility $\hat{\sigma}_t$ are shown below:
 
 ![](../img/garch_result.png)
 
-The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:
+The plot of prediction of volatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:
 
 ![](../img/garch_train_pred.png)
 
-From the plot, we can see that the GARCH(1,1) model can capture the conditional violatility of the log return series well.
+From the plot, we can see that the GARCH(1,1) model can capture the conditional volatility of the log return series well.
 
 ### Model Checking
 
@@ -345,13 +345,13 @@ beta[1]        0.9980  9.226e-04   1081.738      0.000       [  0.996,  1.000]
 
 From the summary, we can see that the p-value of each parameter is less than 0.05, so we can reject the null hypothesis that the parameter is 0.
 
-The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted violatility $\hat{\sigma}_t$ are shown below:
+The fitted standardized residuals $\hat{\epsilon}_t$ and the fitted volatility $\hat{\sigma}_t$ are shown below:
 
 ![](../img/egarch_result.png)
 
-From the plot and compare with result by GARCH model, we can see the conditional violatility of the log return series is similar as GARCH model. 
+From the plot and compare with result by GARCH model, we can see the conditional volatility of the log return series is similar as GARCH model. 
 
-The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:
+The plot of prediction of volatility $\hat{\sigma}_t$ and ground truth of log return $r_t$ is shown below:
 
 ![](../img/egarch_train_pred.png)
 
