@@ -361,7 +361,7 @@ The plot of prediction of violatility $\hat{\sigma}_t$ and ground truth of log r
 
 Nowaday, deep learning has been widely used in many fields. In this section, we will introduce some deep learning models and apply them to the prediction of FX rate.
 
-In this section, we are going to explore the sequential neural network models, including RNN, LSTM, use them to predict the price of TRI series.
+In this section, we are going to explore the sequential neural network models, including RNN, LSTM, use them to predict the price of TRI series. For these models, we use the price of TRI series directly without difference.
 
 ### RNN
 
